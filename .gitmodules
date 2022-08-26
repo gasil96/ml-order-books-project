@@ -1,0 +1,9 @@
+[submodule "ml-register"]
+	path = ml-register
+	url = https://github.com/gasil96/ml-register.git
+[submodule "ml-order"]
+	path = ml-order
+	url = https://github.com/gasil96/ml-order.git
+[submodule "ml-wallet"]
+	path = ml-wallet
+	url = https://github.com/gasil96/ml-wallet.git
