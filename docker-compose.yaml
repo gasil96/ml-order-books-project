@@ -26,6 +26,26 @@ services:
       RABBIT_HOST: rabbitmq
       RABBIT_USERNAME: guest
       RABBIT_PASSWORD: guest
+  register:
+    restart: always
+    container_name: "register"
+    image: registerapplication
+    build: ./ml-register
+    ports:
+      - "8081:8081"
+    depends_on:
+      - mysql_db
+      - rabbitmq
+    links:
+      - mysql_db
+      - rabbitmq
+    environment:
+      DATASOURCE_URL: jdbc:mysql://mysql_db:3306/las_vegas?createDatabaseIfNotExist=true&useSSL=false&useTimezone=true&serverTimezone=UTC
+      DATASOURCE_USERNAME: root
+      DATASOURCE_PASSWORD: root
+      RABBIT_HOST: rabbitmq
+      RABBIT_USERNAME: guest
+      RABBIT_PASSWORD: guest
   mongo_db:
     container_name: "mongo_db"
     image: mongo
