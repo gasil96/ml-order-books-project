@@ -1,0 +1,27 @@
+version: '1.0'
+services:
+  mongo:
+    container_name: "mongo_db"
+    image: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+    ports:
+      - "27017:27017"
+  mysqlsrv:
+    container_name: "mysql_db"
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: "root"
+    ports:
+      - "3306:3306"
+  rabbitmq:
+    container_name: "rabbitmq"
+    image: rabbitmq:3-management
+    expose:
+     - "5672"
+    ports:
+     - "15672:15672"
+     - "5672:5672"
+    networks:
+      - default 
