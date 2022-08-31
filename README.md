@@ -95,20 +95,20 @@ Requisitos mínimos
 
 1 - Baixe esse repositorio a partir da branch main 
 ˋˋˋ
-git clone <esse repositório>
- ˋˋˋ
+git clone --recurse-submodules --remote-submodules<esse repositório>
+ˋˋˋ
 2 - Navege para os diretórios de cada aplicação e rode o seguinte comando maven
 ˋˋˋ
 mvn clean install
- ˋˋˋ
+ˋˋˋ
 3 - Retorne para o diretório raiz deste repositório e rode o seguinte comando docker:
 ˋˋˋ
 docker-compose up -d
- ˋˋˋ
+ˋˋˋ
  ou caso queria subir escalando a api core 
 ˋˋˋ
 docker-compose up --scale order=2 -d
- ˋˋˋ
+ˋˋˋ
 4 - Aguarda a subida completa e pronto, você ja pode navegar entre as ferrametas, documentações e testar as aplicações
 
 dica: na raiz desse repositorio existe um arquivo chamado 'order-books-project.postman_collection.json' com todos os endpoints ja mapeados com exemplos... pronto para ser importado no postman =) 
