@@ -96,7 +96,7 @@ Requisitos mínimos
 1 - Baixe esse repositorio a partir da branch main 
 ```
 
-git clone --recurse-submodules --remote-submodules<esse repositório>
+git clone --recurse-submodules --remote-submodules <esse repositório>
 
 ```
 2 - Navege para os diretórios de cada aplicação e rode o seguinte comando maven
