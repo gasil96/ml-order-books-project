@@ -103,7 +103,11 @@ mvn clean install
  ˋˋˋ
 3 - Retorne para o diretório raiz deste repositório e rode o seguinte comando docker:
 ˋˋˋ
-docker-compose up
+docker-compose up -d
+ ˋˋˋ
+ ou caso queria subir escalando a api core 
+ˋˋˋ
+docker-compose up --scale order=2 -d
  ˋˋˋ
 4 - Aguarda a subida completa e pronto, você ja pode navegar entre as ferrametas, documentações e testar as aplicações
 
