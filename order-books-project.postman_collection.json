@@ -1,0 +1,234 @@
+{
+	"info": {
+		"_postman_id": "26abf253-b278-42a2-b13f-d831b6fd88ce",
+		"name": "order-books-project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8426893"
+	},
+	"item": [
+		{
+			"name": "ml-order",
+			"item": [
+				{
+					"name": "user",
+					"item": [
+						{
+							"name": "list-all",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host-8080}}/v1/users/list/",
+									"host": [
+										"{{host-8080}}"
+									],
+									"path": [
+										"v1",
+										"users",
+										"list",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Vendedor dos Santos\",\r\n  \"email\": \"teste@1kv.com\",\r\n  \"wallet\": {\r\n    \"balance\": 1000,\r\n    \"product\": 1000\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host-8080}}/v1/users/create",
+									"host": [
+										"{{host-8080}}"
+									],
+									"path": [
+										"v1",
+										"users",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 1,\r\n    \"name\": \"Vendedor dos Santos\",\r\n    \"email\": \"teste@1kv.com\",\r\n    \"wallet\": {\r\n        \"id\": 2,\r\n        \"balance\": 1000.00,\r\n        \"product\": 1000\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host-8080}}/v1/users/update",
+									"host": [
+										"{{host-8080}}"
+									],
+									"path": [
+										"v1",
+										"users",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 5,\r\n    \"name\": \"Vendedor dos Santos\",\r\n    \"email\": \"teste@1kv.com\",\r\n    \"wallet\": {\r\n        \"id\": 6,\r\n        \"balance\": 1000.00,\r\n        \"product\": 1000\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host-8080}}/v1/users/delete",
+									"host": [
+										"{{host-8080}}"
+									],
+									"path": [
+										"v1",
+										"users",
+										"delete"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "wallet",
+					"item": [
+						{
+							"name": "list-all",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host-8080}}/v1/wallets/list/",
+									"host": [
+										"{{host-8080}}"
+									],
+									"path": [
+										"v1",
+										"wallets",
+										"list",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "order",
+					"item": [
+						{
+							"name": "orderEvent",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"typeOrder\": \"BUY\",\r\n  \"price\": 500,\r\n  \"quantity\": 500,\r\n  \"walletID\": 4\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host-8080}}/v1/orders/create-order/",
+									"host": [
+										"{{host-8080}}"
+									],
+									"path": [
+										"v1",
+										"orders",
+										"create-order",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "list-all",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:4000/v1/orders/list",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"v1",
+										"orders",
+										"list"
+									],
+									"query": [
+										{
+											"key": "statusOrder",
+											"value": "FINISHED",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "ml-register",
+			"item": [
+				{
+					"name": "order-list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host-8081}}/v1/orders/list",
+							"host": [
+								"{{host-8081}}"
+							],
+							"path": [
+								"v1",
+								"orders",
+								"list"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
