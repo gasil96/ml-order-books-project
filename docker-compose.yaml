@@ -7,21 +7,35 @@ services:
     expose:
       - "8080"
     depends_on:
-      - mysql_db
       - mongo_db
       - rabbitmq
     links:
-      - mysql_db
       - mongo_db
+      - rabbitmq
+    environment:
+      MONGO_URI: mongodb://root:root@mongo_db:27017
+      MONGO_DATABASE: aruba
+      SPRING_DATA_MONGODB_DATABASE: aruba
+      SPRING_DATA_MONGODB_URI: mongodb://root:root@mongo_db:27017
+      RABBIT_HOST: rabbitmq
+      RABBIT_USERNAME: guest
+      RABBIT_PASSWORD: guest
+  walletapplication:
+    restart: always
+    image: walletapplication
+    build: ./ml-wallet
+    ports:
+      - "8082:8082"
+    depends_on:
+      - mysql_db
+      - rabbitmq
+    links:
+      - mysql_db
       - rabbitmq
     environment:
       DATASOURCE_URL: jdbc:mysql://mysql_db:3306/ibiza?createDatabaseIfNotExist=true&useSSL=false&useTimezone=true&serverTimezone=UTC
       DATASOURCE_USERNAME: root
       DATASOURCE_PASSWORD: root
-      MONGO_URI: mongodb://root:root@mongo_db:27017
-      MONGO_DATABASE: aruba
-      SPRING_DATA_MONGODB_DATABASE: aruba
-      SPRING_DATA_MONGODB_URI: mongodb://root:root@mongo_db:27017
       RABBIT_HOST: rabbitmq
       RABBIT_USERNAME: guest
       RABBIT_PASSWORD: guest
