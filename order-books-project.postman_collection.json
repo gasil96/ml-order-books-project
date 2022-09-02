@@ -7,122 +7,11 @@
 	},
 	"item": [
 		{
-			"name": "ml-order",
-			"item": [
-				{
-					"name": "order",
-					"item": [
-						{
-							"name": "orderEvent",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"typeOrder\": \"BUY\",\r\n  \"price\": 77,\r\n  \"quantity\": 77,\r\n  \"walletID\": 4\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "localhost:8080/v1/orders/create-order/",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"v1",
-										"orders",
-										"create-order",
-										""
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "list-all",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "localhost:8080/v1/orders/list?statusOrder=FINISHED",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"v1",
-										"orders",
-										"list"
-									],
-									"query": [
-										{
-											"key": "statusOrder",
-											"value": "FINISHED"
-										}
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				}
-			]
-		},
-		{
-			"name": "ml-register",
-			"item": [
-				{
-					"name": "order-list",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "localhost:8081/v1/orders/list",
-							"host": [
-								"localhost"
-							],
-							"port": "8081",
-							"path": [
-								"v1",
-								"orders",
-								"list"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
 			"name": "ml-wallet",
 			"item": [
 				{
 					"name": "user",
 					"item": [
-						{
-							"name": "list-all",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{ml-wallet}}/v1/users/list/",
-									"host": [
-										"{{ml-wallet}}"
-									],
-									"path": [
-										"v1",
-										"users",
-										"list",
-										""
-									]
-								}
-							},
-							"response": []
-						},
 						{
 							"name": "create",
 							"request": {
@@ -130,7 +19,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"name\": \"Comprador da Silva\",\r\n  \"email\": \"comprador@mailinator.com\",\r\n  \"wallet\": {\r\n    \"balance\": 1000,\r\n    \"product\": 1000\r\n  }\r\n}",
+									"raw": "{\r\n  \"name\": \"Frederico da Silva\",\r\n  \"email\": \"fred@mailinator.com\",\r\n  \"wallet\": {\r\n    \"balance\": 1000,\r\n    \"product\": 1000\r\n  }\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -146,6 +35,26 @@
 										"v1",
 										"users",
 										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "list-all",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ml-wallet}}/v1/users/list/",
+									"host": [
+										"{{ml-wallet}}"
+									],
+									"path": [
+										"v1",
+										"users",
+										"list",
+										""
 									]
 								}
 							},
@@ -233,6 +142,94 @@
 							"response": []
 						}
 					]
+				}
+			]
+		},
+		{
+			"name": "ml-order",
+			"item": [
+				{
+					"name": "order",
+					"item": [
+						{
+							"name": "orderEvent",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"typeOrder\": \"BUY\",\r\n  \"price\": 100,\r\n  \"quantity\": 100,\r\n  \"walletID\": 4\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ml-order}}/v1/orders/create-order/",
+									"host": [
+										"{{ml-order}}"
+									],
+									"path": [
+										"v1",
+										"orders",
+										"create-order",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "order-list-all",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ml-order}}/v1/orders/list?statusOrder=FINISHED",
+									"host": [
+										"{{ml-order}}"
+									],
+									"path": [
+										"v1",
+										"orders",
+										"list"
+									],
+									"query": [
+										{
+											"key": "statusOrder",
+											"value": "FINISHED"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "ml-register",
+			"item": [
+				{
+					"name": "order-register-list-all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ml-register}}/v1/orders/list",
+							"host": [
+								"{{ml-register}}"
+							],
+							"path": [
+								"v1",
+								"orders",
+								"list"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		}
