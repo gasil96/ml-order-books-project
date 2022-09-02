@@ -21,6 +21,7 @@ services:
       RABBIT_USERNAME: guest
       RABBIT_PASSWORD: guest
   walletapplication:
+    container_name: wallet
     restart: always
     image: walletapplication
     build: ./ml-wallet
