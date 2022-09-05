@@ -17,7 +17,7 @@ Assim que uma ordem de compra se equaliza a uma ordem de venda a transação é 
 * Docker - 20.20.12
 * Docker Compose - 2.2.3
 
-## Arquitetura
+## [Arquitetura](https://app.diagrams.net/#G1OT2RmN3ggzjcY_U4tGvZFIbWDZoXlMic)
 <p align="center">
   <img src="https://user-images.githubusercontent.com/48265863/188205452-a5ce525f-26f8-4168-8180-e9e57c1c15eb.png">
 </p>
